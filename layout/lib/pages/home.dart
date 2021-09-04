@@ -1,7 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:layout/pages/detail.dart';
+import 'package:http/http.dart' as http; // as http  เหมือนการตั้งชื่อเล่นเวลาเรียกใช้ก็ใช้ตัวนี้ได้เลย
+import 'dart:async';
 
 class Homepage extends StatefulWidget {
   // const Homepage({ Key? key }) : super(key: key);
@@ -19,19 +20,37 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: FutureBuilder( 
-          builder: (context,snapshot) {
-            var data = json.decode(snapshot.data.toString()); // decode json ต้องใช้ package dart.convert
+        child: 
+        //// การดุึงข้อมูลจาก json file แล้ว Loop เพื่อแสดงผล
+        // FutureBuilder( 
+        //   builder: (context,snapshot) {
+        //     var data = json.decode(snapshot.data.toString()); // decode json ต้องใช้ package dart.convert
+        //     return ListView.builder( // class การทำ Loop
+        //       itemBuilder: (BuildContext context,int index) 
+        //       {
+        //           return myBox(data[index]['title'], data[index]['subtitle'], data[index]['imageurl'],data[index]['detail']);
+        //       },
+        //       itemCount: data.length, // กำหนดจำนวนรอบที่จะทำ หรือ จำนวนข้อมูลที่จะ Loop
+        //       );
+
+        //   },
+        //   future: DefaultAssetBundle.of(context).loadString('assets/data.json'), //ดึงข้อมูลจากไฟล์ Json แล้ว assign ค่าให้ snapshot
+
+        // ),
+        // การดุึงข้อมูลจาก json file จาก Github Http Request
+        FutureBuilder( 
+          builder: (context,AsyncSnapshot snapshot) {
+            
             return ListView.builder( // class การทำ Loop
               itemBuilder: (BuildContext context,int index) 
               {
-                  return myBox(data[index]['title'], data[index]['subtitle'], data[index]['imageurl'],data[index]['detail']);
+                  return myBox(snapshot.data[index]['title'], snapshot.data[index]['subtitle'], snapshot.data[index]['imageurl'],snapshot.data[index]['detail']);
               },
-              itemCount: data.length, // กำหนดจำนวนรอบที่จะทำ หรือ จำนวนข้อมูลที่จะ Loop
+              itemCount: snapshot.data.length, // กำหนดจำนวนรอบที่จะทำ หรือ จำนวนข้อมูลที่จะ Loop
               );
 
           },
-          future: DefaultAssetBundle.of(context).loadString('assets/data.json'), //ดึงข้อมูลจากไฟล์ Json แล้ว assign ค่าให้ snapshot
+          future: getData(), //ดึงข้อมูลจากไฟล์ Json แล้ว assign ค่าให้ snapshot
 
         ),
       ),
@@ -125,4 +144,14 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+
+  // Future function สำหรับการดึงข้อมูลจาก Github โดย http request
+  Future getData () async {
+    //https://raw.githubusercontent.com/ShinraCoding/BasicAPI/main/data.json
+    var url = Uri.https('raw.githubusercontent.com','/ShinraCoding/BasicAPI/main/data.json');
+    var response = await http.get(url);
+    var result = json.decode(response.body);
+    return result;
+  }
+
 }
