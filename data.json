@@ -2,19 +2,19 @@
     {
         "title":"ร้านเล็กๆแบบลับๆ",
         "subtitle":"ร้านเด็ดๆที่คุณอาจไม่รู้ หรือ ร้านลับๆที่คุณไม่เคยเห็นมาก่อน",
-        "imageurl":"https://github.com/ShinraCoding/BasicAPI/blob/main/cafe.jpeg",
+        "imageurl":"https://raw.githubusercontent.com/ShinraCoding/BasicAPI/main/cafe.jpeg",
         "detail":"  เอาล่ะ! เตรียมสมุด และปากกาจดลิสต์พิกัดร้านเด็ด ในกรุงเทพฯ กันอีกได้เลยครับ..\nครั้งนี้บอกเลยว่าไม่ธรรมดาแบบครั้งก่อนๆ เพราะเราจะมาทุกคนลัดเลาะซอกซอย หรือซอกตึก ไปลิ้มลองของอร่อยกับ 9 ร้านอร่อย ลับๆ ในกรุงเทพ \nซ่อนตัวเก่ง จนแทบหาไม่เจอ! ครบครันทั้งร้านอาหาร คาเฟ่ ร้านกาแฟ และร้านแฮงค์เอาท์ อยากรู้แล้วล่ะซิ? \nตามไปดูกันเลยดีกว่าครับ"
     },
     {
         "title":"รวมร้านเด็ดสายหวาน",
         "subtitle":"เอาใจสายหวาน ที่เรารวบรวมมาให้ไม่ว่าจะย่านไหนๆใน กทม",
-        "imageurl":"https://github.com/ShinraCoding/BasicAPI/blob/main/macarons.jpeg",
+        "imageurl":"https://raw.githubusercontent.com/ShinraCoding/BasicAPI/main/macarons.jpeg",
         "detail":"Detail 2"
     },
     {
         "title":"ชี้เป้าโปรเด็ด",
         "subtitle":"โปรไหนกำลังจะมาเราไม่อยากให้คุณพลาด แหล่งรวมโปรเด็ดโปรฮิต",
-        "imageurl":"https://github.com/ShinraCoding/BasicAPI/blob/main/promotion.jpeg",
+        "imageurl":"https://raw.githubusercontent.com/ShinraCoding/BasicAPI/main/promotion.jpeg",
         "detail":"Detail 3"
     }
 ]
